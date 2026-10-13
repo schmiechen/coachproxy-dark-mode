@@ -2,3 +2,4 @@ __pycache__/
 backups/
 ref/
 CLAUDE.md
+.DS_Store
