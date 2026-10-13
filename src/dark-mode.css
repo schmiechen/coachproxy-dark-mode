@@ -1,0 +1,114 @@
+/* CoachProxy dark mode. Everything is scoped to html[data-cp-theme="dark"], so light mode is untouched. */
+html[data-cp-theme="dark"] {
+  color-scheme: dark;
+  --cp-page: #121417;
+  --cp-card: #1d2126;
+  --cp-text: #e6e8ea;
+  --cp-muted: #9aa3ab;
+  --cp-border: #3a4047;
+  --cp-toolbar: #1f4e6b;
+}
+
+html[data-cp-theme="dark"] body#nr-dashboard,
+html[data-cp-theme="dark"] body#nr-dashboard md-content {
+  background: var(--cp-page) !important;
+  color: var(--cp-text) !important;
+}
+
+/* group cards and side menu */
+html[data-cp-theme="dark"] .nr-dashboard-cardpanel,
+html[data-cp-theme="dark"] md-card,
+html[data-cp-theme="dark"] md-sidenav,
+html[data-cp-theme="dark"] md-sidenav md-content {
+  background: var(--cp-card) !important;
+  color: var(--cp-text) !important;
+  border-color: var(--cp-border) !important;
+}
+html[data-cp-theme="dark"] md-sidenav a,
+html[data-cp-theme="dark"] md-sidenav md-list-item,
+html[data-cp-theme="dark"] md-sidenav .md-button {
+  color: var(--cp-text) !important;
+}
+
+/* The dashboard theme forces light backgrounds on text inside template cards and on the group panel */
+html[data-cp-theme="dark"] ui-card-panel {
+  background-color: var(--cp-card) !important;
+  border-color: var(--cp-border) !important;
+}
+html[data-cp-theme="dark"] .nr-dashboard-template p,
+html[data-cp-theme="dark"] .nr-dashboard-template h1,
+html[data-cp-theme="dark"] .nr-dashboard-template h2,
+html[data-cp-theme="dark"] .nr-dashboard-template h3,
+html[data-cp-theme="dark"] .nr-dashboard-template h4 {
+  background-color: transparent !important;
+  color: var(--cp-text) !important;
+}
+html[data-cp-theme="dark"] .nr-dashboard-template a { color: #7db7e8 !important; }
+
+/* side menu: the list items carry their own light background and dark text/icons */
+html[data-cp-theme="dark"] md-sidenav md-list,
+html[data-cp-theme="dark"] md-sidenav md-list-item,
+html[data-cp-theme="dark"] md-sidenav md-list-item .md-button,
+html[data-cp-theme="dark"] md-sidenav md-list-item .md-list-item-inner {
+  background-color: transparent !important;
+}
+html[data-cp-theme="dark"] md-sidenav md-list-item p,
+html[data-cp-theme="dark"] md-sidenav ng-md-icon,
+html[data-cp-theme="dark"] md-sidenav i {
+  color: var(--cp-text) !important;
+  fill: var(--cp-text) !important;
+}
+html[data-cp-theme="dark"] md-sidenav ng-md-icon svg,
+html[data-cp-theme="dark"] md-sidenav ng-md-icon svg path { fill: var(--cp-text) !important; }
+html[data-cp-theme="dark"] md-sidenav md-list-item:hover { background-color: rgba(255,255,255,.08) !important; }
+html[data-cp-theme="dark"] .nr-menu-item-active { background-color: rgba(255,255,255,.12) !important; }
+
+/* top bar */
+html[data-cp-theme="dark"] md-toolbar#toolbar {
+  background: var(--cp-toolbar) !important;
+  color: #fff !important;
+}
+
+/* text-ish widgets */
+html[data-cp-theme="dark"] .nr-dashboard-text,
+html[data-cp-theme="dark"] .nr-dashboard-template,
+html[data-cp-theme="dark"] .nr-dashboard-form,
+html[data-cp-theme="dark"] md-input-container label,
+html[data-cp-theme="dark"] md-select-value,
+html[data-cp-theme="dark"] .md-select-value {
+  color: var(--cp-text) !important;
+}
+html[data-cp-theme="dark"] md-input-container input,
+html[data-cp-theme="dark"] md-input-container textarea {
+  color: var(--cp-text) !important;
+  border-color: var(--cp-border) !important;
+}
+html[data-cp-theme="dark"] md-select-menu,
+html[data-cp-theme="dark"] md-select-menu md-content,
+html[data-cp-theme="dark"] md-option,
+html[data-cp-theme="dark"] md-menu-content,
+html[data-cp-theme="dark"] md-dialog {
+  background: var(--cp-card) !important;
+  color: var(--cp-text) !important;
+}
+
+/* hard-coded light styles inside ui_template labels (section headings) */
+html[data-cp-theme="dark"] [style*="#FEFEFE" i],
+html[data-cp-theme="dark"] [style*="#FFFFFF" i],
+html[data-cp-theme="dark"] [style*="background-color: white" i] {
+  background-color: var(--cp-card) !important;
+  color: var(--cp-text) !important;
+}
+html[data-cp-theme="dark"] [style*="solid black" i] {
+  border-color: var(--cp-border) !important;
+}
+
+/* toggle button (lives in the toolbar; falls back to fixed position) */
+#cp-theme-toggle {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-left: auto; padding: 6px 10px; border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.55); background: rgba(255,255,255,.15);
+  color: #fff; font: inherit; font-size: 13px; line-height: 1; cursor: pointer;
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+#cp-theme-toggle.cp-floating { position: fixed; top: 8px; right: 8px; z-index: 9999; margin: 0; background: rgba(0,0,0,.55); }
