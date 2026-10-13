@@ -28,6 +28,9 @@ python3 deploy.py --url http://<your-coachproxy>:1880 --rollback   # removes it 
 ```
 Then hard-refresh the dashboard (or close and reopen the tab). If your Node-RED admin API needs a login, add `--token <access token>`. Re-running `--apply` is safe: it replaces the block instead of duplicating it.
 
+## Limitations
+Dark mode works by adding CSS, nothing more. It restyles page elements (backgrounds, text, cards, the menu, form controls) but does not change how other objects render themselves. In particular, **charts are drawn on a `<canvas>` by the dashboard**, so their axis numbers and labels keep their original dark gray and can be hard to read on the dark background. Fixing that would need changes to the charts themselves, which this project deliberately doesn't do.
+
 ## Notes
 - The dashboard theme forces light backgrounds with `!important` (e.g. on `.nr-dashboard-template p`), so overrides need `!important` and higher specificity.
 - Don't change the DOM unconditionally inside the `MutationObserver` callback: that loops forever and blanks the dashboard.
